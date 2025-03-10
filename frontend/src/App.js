@@ -1,7 +1,14 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomeComponent from "./pages/home";
-import ProductsComponent from "./pages/products";
+import ProductsComponent, {
+  CreateProductComponent,
+  ModifyProductComponent,
+} from "./pages/products";
+import { ToastContainer } from "react-toast";
+import axios from "axios";
+
+axios.defaults.baseURL = process.env.SERVER_URL || "http://localhost:8000";
 
 function App() {
   return (
@@ -31,8 +38,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeComponent />} />
           <Route path="/products" element={<ProductsComponent />} />
+          <Route path="/products/create" element={<CreateProductComponent />} />
+          <Route path="/products/:id" element={<ModifyProductComponent />} />
         </Routes>
       </Router>
+      <ToastContainer position="top-center" />
     </div>
   );
 }
