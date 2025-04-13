@@ -7,12 +7,11 @@ import ProductsComponent, {
 } from "./pages/products";
 import { ToastContainer } from "react-toast";
 import axios from "axios";
-import { UserContext, UserContextProvider } from "./userContext";
+import { UserContextProvider } from "./userContext";
 import LoginComponent, {
   AccountComponent,
   RegisterComponent,
 } from "./pages/login";
-import { useContext } from "react";
 import Navbar from "./Navbar";
 
 axios.defaults.baseURL = process.env.SERVER_URL || "http://localhost:8000";
