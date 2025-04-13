@@ -269,7 +269,7 @@ export function ModifyProductComponent() {
             id="category"
             name="category"
             required
-            defaultValue={product.category}
+            value={product.category}
           >
             <option value="clothing">Clothing</option>
             <option value="electronics">Electronics</option>
