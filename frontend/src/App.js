@@ -7,43 +7,39 @@ import ProductsComponent, {
 } from "./pages/products";
 import { ToastContainer } from "react-toast";
 import axios from "axios";
+import { UserContext, UserContextProvider } from "./userContext";
+import LoginComponent, {
+  AccountComponent,
+  RegisterComponent,
+} from "./pages/login";
+import { useContext } from "react";
+import Navbar from "./Navbar";
 
 axios.defaults.baseURL = process.env.SERVER_URL || "http://localhost:8000";
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
-    <div className="App">
-      <nav>
-        <div>
-          <h1 className="bg-orange">IT431-DL1 Project 1</h1>
-        </div>
-        <div>
-          <a
-            href="/"
-            className={document.location.pathname == "/" ? "active" : ""}
-          >
-            Home
-          </a>
-          <a
-            href="/products"
-            className={
-              document.location.pathname.includes("/products") ? "active" : ""
-            }
-          >
-            Products
-          </a>
-        </div>
-      </nav>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomeComponent />} />
-          <Route path="/products" element={<ProductsComponent />} />
-          <Route path="/products/create" element={<CreateProductComponent />} />
-          <Route path="/products/:id" element={<ModifyProductComponent />} />
-        </Routes>
-      </Router>
-      <ToastContainer position="top-center" />
-    </div>
+    <UserContextProvider>
+      <div className="App">
+        <Navbar />
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomeComponent />} />
+            <Route path="/products" element={<ProductsComponent />} />
+            <Route
+              path="/products/create"
+              element={<CreateProductComponent />}
+            />
+            <Route path="/products/:id" element={<ModifyProductComponent />} />
+            <Route path="/login" element={<LoginComponent />} />
+            <Route path="/register" element={<RegisterComponent />} />
+            <Route path="/account" element={<AccountComponent />} />
+          </Routes>
+        </Router>
+        <ToastContainer position="top-center" />
+      </div>
+    </UserContextProvider>
   );
 }
 

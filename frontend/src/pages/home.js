@@ -15,10 +15,10 @@ export default function HomeComponent() {
       style={{ height: `calc(100vh - ${navbarHeight}px)` }}
     >
       <h1 className="text-3xl font-extrabold tracking-wide text-gray-100">
-        IT341-DL1 Project 1 - Home
+        IT341-DL1 Project 2 - Home
       </h1>
       <p className="text-1l font-bold tracking-wide text-gray-100">
-        This is designed for IT341-DL1 Project 1
+        This is designed for IT341-DL1 Project 2
       </p>
       <p className="text-1l font-bold tracking-wide text-gray-100">
         By Yemaj W
